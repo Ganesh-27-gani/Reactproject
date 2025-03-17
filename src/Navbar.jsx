@@ -12,7 +12,7 @@ const Navbar = () => {
             </a>
              <div className="navbar-nav ">
                 <a className="nav-link text-dark fw-bold fs-5" aria-current="page" href="#">Home</a>
-                <a className="nav-link text-dark fw-bold fs-5" href="#">Shope</a>
+                <a className="nav-link text-dark fw-bold fs-5" href="#">Shop</a>
                 <a className="nav-link text-dark fw-bold fs-5" href="#">Cart</a>
                 <a className="nav-link text-dark fw-bold fs-5" href="#"><FaUser /></a>
                 <a className="nav-link text-dark fw-bold fs-5" href="#"><FaShoppingCart /> </a>

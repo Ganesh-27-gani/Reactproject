@@ -6,41 +6,41 @@ import { MdSecurity } from 'react-icons/md'
 const Cards = () => {
   return (
     <div>
-     <div className='container pb-5 pt-5'>
-      <div className="row row-cols-1 row-cols-md-4 g-3">
+     <div className='container pb-5'>
+      <div className="row row-cols-1 row-cols-md-4 g-3 " >
        <div className="col">
-         <div className="card h-100 bg- bg-warning">
-          <h3><FaCar /></h3>
-            <div className="card-body">
-            <h5 className="card-title text-white">Free Shipping</h5>
-            <p className="card-text text-white">Lorem ipsum dolor sit amet</p>
+         <div className="card  p-5" style={{backgroundColor:"#fdefe6"}}>
+          <h3  className='rounded-circle' ><FaCar style={{background: "white",borderRadius:" 50%", padding: "5px", fontSize: "40px",}}/></h3>
+            <div className="card-body" >
+            <h5 className="card-title fs-4">Free Shipping</h5>
+            <p className="card-text ">Lorem ipsum dolor sit amet</p>
             </div>
          </div>
         </div>
         <div className="col">
-         <div className="card h-100 bg-info ">
-         <h3><FaCreditCard /></h3>
+         <div className="card h-100 p-5" style={{backgroundColor:"#ceebe9"}}>
+         <h3><FaCreditCard  style={{background: "white",borderRadius:" 50%", padding: "5px", fontSize: "40px",}}/></h3>
           <div className="card-body">
-            <h5 className="card-title text-white">Safe Payment</h5>
-            <p className="card-text text-white">Lorem ipsum dolor sit amet</p>
+            <h5 className="card-title fs-4">Safe Payment</h5>
+            <p className="card-text  ">Lorem ipsum dolor sit amet</p>
             </div>
           </div>
          </div>
             <div className="col">
-            <div className="card h-100 bg-success">
-             <h3><MdSecurity /></h3>
+            <div className="card h-100 p-5" style={{backgroundColor:"#e2f2b2"}}>
+             <h3><MdSecurity  style={{background: "white",borderRadius:" 50%", padding: "5px", fontSize: "40px",}}/></h3>
             <div className="card-body">
-            <h5 className="card-title text-white">Secure payment</h5>
-            <p className="card-text text-white">Lorem ipsum dolor sit amet</p>
+            <h5 className="card-title fs-4">Secure payment</h5>
+            <p className="card-text ">Lorem ipsum dolor sit amet</p>
             </div>
             </div>
             </div>
             <div className="col">
-            <div className="card h-100 bg-primary">
-             <h3><IoHeadset /></h3>
+            <div className="card h-100 p-5 " style={{backgroundColor:"#d6e5fb"}}>
+             <h3><IoHeadset style={{background: "white",borderRadius:" 50%", padding: "5px", fontSize: "40px",}} /></h3>
             <div className="card-body">
-            <h5 className="card-title text-white">Back Guarantee</h5>
-            <p className="card-text text-white">Lorem ipsum dolor sit amet</p>
+            <h5 className="card-title fs-4">Back Guarantee</h5>
+            <p className="card-text">Lorem ipsum dolor sit amet</p>
           </div>
          </div>
         </div>

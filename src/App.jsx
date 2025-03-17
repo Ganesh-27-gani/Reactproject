@@ -7,21 +7,14 @@ import Cards from './Cards'
 import Discount from './Discount'
 import Arrivals from './Arrivals'
 import BestSales from './BestSales'
+import Routers from './routes/Routers'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  
   return (
     <>
-       <Navbar/>
-       <Reactslick/>
-       <Cards/>
-       <Discount/>
-       <Arrivals/>
-       <BestSales/>
-       <Footer/>
+       <Routers/>
     </>
   )
 }
-
 export default App
