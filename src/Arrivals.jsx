@@ -18,7 +18,6 @@ const Arrivals = () => {
         })
         setArrivals(filterproduct)
      },[])
-     console.log(filtered);
      
       
     
@@ -31,11 +30,11 @@ const Arrivals = () => {
                  {
                    filtered.map((ele) => (
                       <div className='col-4 col-4 d-grid' key={ele.id}>
-                        <Link to={`/productdetails/${ele.id}`}> <div className='card border gap-3 mb-4 '>
+                        <Link to={`/productdetails/${ele.id}`} className="text-decoration-none"> <div className='card border gap-3 mb-4 '>
                     <img className='card-img-top' style={{ height: "350px" }} src={ele.imgUrl} alt={ele.productName} />
-                    <div className='card-body' style={{ textAlign: "left" }}>
-                      <h4 className='card-title'>{ele.productName} <br /><p style={{ color: "#f0be2a" }}> <IoStar /><IoStar /><IoStar /><IoStar /><IoStar /></p></h4>
-                      <h6 className='card-text fw-bold fs-4'>${ele.price} </h6>
+                    <div className='card-body ' style={{ textAlign: "left", }}>
+                      <h4 className='card-title '>{ele.productName} <br /><p style={{ color: "#f0be2a" }}> <IoStar /><IoStar /><IoStar /><IoStar /><IoStar /></p></h4>
+                      <h6 className='card-text fw-bold fs-4 '>${ele.price} </h6>
                     </div>
                   </div>
                 </Link>

@@ -6,6 +6,7 @@ import Discount from './Discount'
 import Arrivals from './Arrivals'
 import BestSales from './BestSales'
 import Footer from './Footer'
+ 
 
 const TotalComp = () => {
   return (
@@ -17,6 +18,7 @@ const TotalComp = () => {
        <Arrivals/>
        <BestSales/>
        <Footer/>
+      
     </>
   )
 }

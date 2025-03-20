@@ -8,12 +8,14 @@ import Discount from './Discount'
 import Arrivals from './Arrivals'
 import BestSales from './BestSales'
 import Routers from './routes/Routers'
+ 
 
 function App() {
   
   return (
     <>
        <Routers/>
+       
     </>
   )
 }
