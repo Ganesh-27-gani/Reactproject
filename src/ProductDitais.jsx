@@ -57,7 +57,10 @@ const handleAdd = (product) =>{
   setAdded(true)
   dispatch(add(product))
 }
-
+// const addhandle =(product) =>{
+//   setAdded(false)
+ 
+// }
 
   const notify = () => toast.success("Product has been added to cart!");
 
@@ -90,7 +93,7 @@ const handleAdd = (product) =>{
             <h6 style={{ fontSize: "20px", marginTop: "30px" }}>${product.price} <span style={{ marginLeft: "30px", color: "gray", fontSize: "17px" }}>category:{product.category}</span></h6>
             <p style={{ marginTop: "30px" }}>{product.shortDesc}</p>
             <input type="number" placeholder='1' style={{ marginTop: "30px", width: "10%" }} /><br />
-            <button style={{ marginTop: "30px", borderRadius: "8px", padding: "4px", backgroundColor: "blue", color: "white" }} onClick={() => handleAdd(product)}>{added ? "added" : " Add To Cart"}</button>
+            <button style={{ marginTop: "30px", borderRadius: "8px", padding: "4px", backgroundColor: "blue", color: "white" }} onClick={() => handleAdd(product)}>{added ? "addeded" : " Add To Cart"}</button>
           </div>
         </div> : " "
       }
@@ -129,7 +132,7 @@ const handleAdd = (product) =>{
           {
 
             relative.map((ele) => (
-              <div className='col-4 col-4 d-grid' key={ele.id}>
+              <div className='col-4 col-4 d-grid' key={ele.id} onClick={onclick=()=>{addhandle(product)}}>
                 <Link to={`/productdetails/${ele.id}`} className="text-decoration-none"> <div className='card border gap-3 mb-4 '>
                   <p style={{ textAlign: "left", border: "1px solid blue", position: "absolute", padding: "2px", borderRadius: "10px", background: "#022f72", color: "white" }}>{ele.discount}%Off</p>
                   <img className='card-img-top' style={{ height: "350px" }} src={ele.imgUrl} alt={ele.productName} />
