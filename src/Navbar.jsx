@@ -15,7 +15,11 @@ const Navbar = () => {
              <div className="navbar-nav ">
                 <Link to="/" className="nav-link text-dark fw-bold fs-5" aria-current="page" href="#">Home</Link>
                 <Link to="/shoppage" className="nav-link text-dark fw-bold fs-5" href="#">Shop</Link>
+                <span>
                 <Link to="/Cartpage" className="nav-link text-dark fw-bold fs-5" href="#">Cart</Link>
+                {/* <p className="mb-1"><strong>Total Items:</strong> {cartdata.length}</p> */}
+
+                </span>
                 <a className="nav-link text-dark fw-bold fs-5" href="#"><FaUser /></a>
                 <a className="nav-link text-dark fw-bold fs-5" href="#"><FaShoppingCart /> </a>
             </div>

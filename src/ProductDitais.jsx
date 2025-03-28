@@ -132,7 +132,7 @@ const handleAdd = (product) =>{
           {
 
             relative.map((ele) => (
-              <div className='col-4 col-4 d-grid' key={ele.id} onClick={onclick=()=>{addhandle(product)}}>
+              <div className='col-4 col-4 d-grid' key={ele.id} >
                 <Link to={`/productdetails/${ele.id}`} className="text-decoration-none"> <div className='card border gap-3 mb-4 '>
                   <p style={{ textAlign: "left", border: "1px solid blue", position: "absolute", padding: "2px", borderRadius: "10px", background: "#022f72", color: "white" }}>{ele.discount}%Off</p>
                   <img className='card-img-top' style={{ height: "350px" }} src={ele.imgUrl} alt={ele.productName} />
