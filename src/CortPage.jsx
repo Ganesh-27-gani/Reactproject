@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from './Navbar'
 import { useDispatch, useSelector } from 'react-redux'
 import { HiOutlineX } from "react-icons/hi";
-import { remove } from './Redux/CartSlice';
+import { add, remove } from './Redux/CartSlice';
 
 
 const CortPage = () => {
@@ -15,6 +15,14 @@ const CortPage = () => {
     dispatch(remove(id))
   }
 
+  const increment = (ele) => {
+    dispatch(add(ele));
+  }
+  const decrement = (ele) => {
+     dispatch(add(ele.id));
+     
+      
+  }
   return (
     <>
     <Navbar />
@@ -38,9 +46,15 @@ const CortPage = () => {
                   <p className="text-muted m-0">${ele.price}</p>
                 </div>
                 <HiOutlineX 
-                  style={{ cursor: "pointer", fontSize: "20px", }} 
+                  style={{ cursor: "pointer", fontSize: "40px",marginBottom:"50px" }} 
                   onClick={() => handelremov(ele.id)} 
                 />
+                <div   style={{marginTop:"70px",display:"flex",gap:"20px",position:"relative",right:"45px", }}>
+                <button onClick={()=> decrement(ele)}>-</button>
+                <span>{ele.quantity}</span>
+                <button onClick={()=> increment(ele)}>+</button>
+                </div>
+                
               </div>
             ))
           ) : (
@@ -55,7 +69,7 @@ const CortPage = () => {
         
         <div className="col-md-4">
           {cartdata.length > 0 && (
-            <div className="border p-3 rounded">
+            <div className="border p-3 rounded text-start">
               <h5 className="border-bottom pb-2">Cart Summary</h5>
               <p className="mb-1"><strong>Total Items:</strong> {cartdata.length}</p>
               <p className="mb-0"><strong>Total Price:</strong> ${cartdata.reduce((acc, ele) => acc + ele.price, 0).toFixed(2)}</p>

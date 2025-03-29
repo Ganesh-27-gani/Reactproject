@@ -1,17 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { discoutProducts } from './Products'
 import { IoStar } from "react-icons/io5";
 import { IoIosAddCircleOutline } from 'react-icons/io';
 import { ToastContainer, toast } from 'react-toastify';
 import { BiColorFill } from 'react-icons/bi';
 import { Link, useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { add } from './Redux/CartSlice';
 
 
 const Discount = () => {
-
+  // const [addnotify, setAddnotify] = useState(false)
+  const  dispatch = useDispatch()
     const {id} =  useParams()
 
-  const notify = () => toast.success("Product has been added to cart!");
+  const notify = (ele) => {
+    
+     dispatch(add(ele))
+     toast.success("Product has been added to cart!");
+ 
+   }
   return (
     <>
       <div className='container pt-5 bg-light'>
@@ -30,9 +38,10 @@ const Discount = () => {
                   </div>
                 </div>
                 </Link>
-                <div style={{ textAlign: "right", fontSize: "33px", position: "relative ",bottom:"90px",right:"20px",margin: "0", }} onClick={notify}>
-                  <IoIosAddCircleOutline /><ToastContainer style={{ fontSize: "15px" }} />
+                <div style={{ textAlign: "right", fontSize: "33px", position: "relative ",bottom:"90px",right:"20px",margin: "0", }} >
+                  <IoIosAddCircleOutline onClick={() => notify(ele)} style={{ cursor: "pointer" }}/>
                 </div>
+                <ToastContainer />
               </div>
             ))
           }

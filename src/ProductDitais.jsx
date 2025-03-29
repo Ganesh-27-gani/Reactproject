@@ -23,6 +23,8 @@ const ProductDitais = () => {
   const [ratings, setratings] = useState([])
   const [added, setAdded] = useState(false)
   const dispatch = useDispatch()
+ 
+ 
 
   useEffect(() => {
     fetchproducts()
@@ -57,12 +59,13 @@ const handleAdd = (product) =>{
   setAdded(true)
   dispatch(add(product))
 }
-// const addhandle =(product) =>{
-//   setAdded(false)
  
-// }
 
-  const notify = () => toast.success("Product has been added to cart!");
+  const notify = (ele) => {
+    dispatch(add(ele))
+    toast.success("Product has been added to cart!")
+  
+  }
 
   return (
     <>
@@ -142,9 +145,12 @@ const handleAdd = (product) =>{
                   </div>
                 </div>
                 </Link>
-                <div style={{ textAlign: "right", fontSize: "33px", position: "relative ", bottom: "90px", right: "20px", margin: "0", }} onClick={notify}>
-                  <IoIosAddCircleOutline /><ToastContainer style={{ fontSize: "15px" }} />
+            
+                <div style={{ textAlign: "right", fontSize: "33px", position: "relative ", bottom: "90px", right: "20px", margin: "0", }} >
+                 <IoIosAddCircleOutline onClick={() => notify(ele)} style={{ cursor: "pointer" }}/>
+                    <ToastContainer style={{ fontSize: "15px" }} />
                 </div>
+               
               </div>
             ))
           }

@@ -4,21 +4,28 @@ import { IoStar } from 'react-icons/io5'
 import { IoIosAddCircleOutline } from 'react-icons/io'
 import { ToastContainer, toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { add } from './Redux/CartSlice';
  
 
 const Arrivals = () => {
 
-    const notify = () => toast.success("Product has been added to cart!");
-  
-
      const[filtered,setArrivals]=useState([])
+      const  dispatch = useDispatch()
+
      useEffect(()=>{
        const filterproduct= products.filter((ele)=>{
              return ele.category == 'mobile' || ele.category == 'wireless'
         })
         setArrivals(filterproduct)
      },[])
-     
+
+     const notify = (ele) => 
+      {
+         dispatch(add(ele))
+        toast.success("Product has been added to cart!");
+      }
+       
       
     
   return (
@@ -38,8 +45,9 @@ const Arrivals = () => {
                     </div>
                   </div>
                 </Link>
-                <div style={{ textAlign: "right", fontSize: "33px", position: "relative ",bottom:"90px",right:"20px",margin: "0", }} onClick={notify}>
-                  <IoIosAddCircleOutline /><ToastContainer style={{ fontSize: "15px" }} />
+                <div style={{ textAlign: "right", fontSize: "33px", position: "relative ",bottom:"90px",right:"20px",margin: "0", }} >
+                  <IoIosAddCircleOutline onClick={() => notify(ele) } style={{ cursor: "pointer" }}/>
+                    <ToastContainer style={{ fontSize: "15px" }} />
                 </div>
               </div>
                    ))
@@ -51,6 +59,8 @@ const Arrivals = () => {
 }
 
 export default Arrivals
+
+// onClick={() => notify(product)} style={{ cursor: "pointer" }}
 
 
 // const [Arrivals,setArrivals]=useState([])

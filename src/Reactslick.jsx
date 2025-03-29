@@ -18,15 +18,15 @@ const Reactslick = () => {
      <Slider {...settings} >
         {
           SliderData.map((x)=>(
-            <div className='container' key={x.id}> 
+            <div className='container mb-5 mt-5' key={x.id}> 
               <div className='row' >
-              <div className='col-7 text-center '>
-                 <h2 style={{textAlign:"left",marginTop:"180px"}} >{x.title}</h2> 
-                 <h6 style={{textAlign:"left"}} >{x.desc}</h6>
-                 <button style={{textAlign:"left",marginRight:"80%"}}>Visit Collections</button>
+              <div className='col-7 text-center' style={{textAlign:"center"}}>
+                 <h2 style={{textAlign:"left", marginTop:"180px",fontSize:"40px",marginBottom:"15px"}} >{x.title}</h2> 
+                 <h6 style={{textAlign:"left",marginBottom:"15px"}}>{x.desc}</h6>
+                 <button style={{textAlign:"left",marginRight:"82%"}}>Visit Collections</button>
               </div>
               <div className='col-5'>
-                  <img className='rounded float-end pt-3 'style={{width:"450px", height:"100%", }} src={x.cover} alt="" />
+                  <img className='rounded float-end pt-3 'style={{width:"500px", height:"500px", }} src={x.cover} alt="" />
               </div>
             </div>
             </div>

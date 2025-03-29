@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <div> 
-        <nav className="navbar navbar-expand navbar-light bg-light" style={{}}>
+    <div style={{position:"sticky",top:"0",zIndex:"1000"}}> 
+        <nav className="navbar navbar-expand navbar-light bg-light" >
         <div className="container">
             <a className="navbar-brand" href=""> 
             <img src="https://lms.achieversit.com/assets/images/logo.png" alt=""  />

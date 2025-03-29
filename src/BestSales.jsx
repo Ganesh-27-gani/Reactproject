@@ -5,12 +5,14 @@ import { IoIosAddCircleOutline } from 'react-icons/io'
 import { ToastContainer, toast } from 'react-toastify';
 import { products } from './Products';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { add } from './Redux/CartSlice';
 
 const BestSales = () => {
 
-  const notify = () => toast.success("Product has been added to cart!");
-
   const [betsales, setSales] = useState([])
+  const  dispatch = useDispatch()
+
   useEffect(() => {
     const bestSales = products.filter((ele) => {
       return ele.category == 'sofa'
@@ -18,6 +20,12 @@ const BestSales = () => {
     setSales(bestSales)
   }, [])
 
+  const notify = (ele) => {
+    
+    dispatch(add(ele))
+    toast.success("Product has been added to cart!");
+
+  }
 
   
   return (
@@ -37,8 +45,8 @@ const BestSales = () => {
                   </div>
                 </div>
                 </Link>
-                <div style={{ textAlign: "right", fontSize: "33px", position: "relative ",bottom:"90px",right:"20px",margin: "0", }} onClick={notify}>
-                  <IoIosAddCircleOutline /><ToastContainer style={{ fontSize: "15px" }} />
+                <div style={{ textAlign: "right", fontSize: "33px", position: "relative ",bottom:"90px",right:"20px",margin: "0", }} >
+                  <IoIosAddCircleOutline onClick={() => notify(ele) } style={{ cursor: "pointer" }}/><ToastContainer style={{ fontSize: "15px" }} />
                 </div>
               </div>
             ))
