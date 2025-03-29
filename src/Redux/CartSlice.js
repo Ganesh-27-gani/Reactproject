@@ -15,15 +15,7 @@ const cartSlice = createSlice({
           state.push({...action.payload,quantity:1})         
         }
         console.log(action.payload);
-        const  y = state.findIndex((ele) => ele.id === action.payload);
-        if(y !== -1){
-           if(state[y].quantity>1){
-            state[y].quantity -= 1;
-           }else{
-            state.splice(y, 1);
-           }
-          
-        }
+        
         // if(y){
         //   if(y.quantity > 1){
         //     y.quantity -= 1;
@@ -36,8 +28,20 @@ const cartSlice = createSlice({
         remove(state, action){
          console.log(action);
          return state.filter((ele)=> ele.id !== action.payload)
+         
+        },
+        minus(state, action){
+         const  y = state.findIndex((ele) => ele.id === action.payload.id);
+         if(y !== -1){
+            if(state[y].quantity>1){
+             state[y].quantity -= 1;
+            }else{
+             state.splice(y, 1);
+            }
+           
+         }
         }
       }
 })
-export const {add, remove} = cartSlice.actions
+export const {add, remove,minus} = cartSlice.actions
 export default cartSlice.reducer

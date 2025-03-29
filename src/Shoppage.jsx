@@ -39,14 +39,26 @@ const Shoppage = () => {
 
     const handleSearch = (event) => {
         const search = event.target.value;
-        const searchProds = products.filter((ele) =>
-            ele.productName.toLowerCase().includes(search.toLowerCase()))
-        setfilteredProducts(searchProds)
+       if(search === ""){ 
+        let searchpage = products.filter((ele) =>
+            ele.category == 'sofa'
+    )
+        setfilteredProducts(searchpage)
+         }
+        else{
+            const searchProds = products.filter((ele) =>
+                ele.productName.toLowerCase().includes(search.toLowerCase()))
+              
+            setfilteredProducts(searchProds)
+         
+        }
+        
+
+        
 
     };
 
-   
-    
+     
 
 
 
@@ -78,8 +90,8 @@ const Shoppage = () => {
                 <div className="container-fluid">
                     <form className="d-flex">
 
-                        <input className="form-control me-5 "  placeholder="Search"  aria-label="Search" onClick={(event) => handleSearch(event)} style={{ marginTop: "30px", marginLeft: "40%", borderRadius: "20px" }} />
-                        <span style={{ position: "relative", top: "33px", right: "80px" }}><IoIosSearch /></span>
+                        <input className="form-control me-5 "  placeholder="Search"  aria-label="Search"  style={{ marginTop: "30px", marginLeft: "40%", borderRadius: "20px" }} onChange={(event) => handleSearch(event)}/>
+                        <span style={{ position: "relative", top: "33px", right: "80px" }} ><IoIosSearch /></span>
                     </form>
                 </div>
             </div>

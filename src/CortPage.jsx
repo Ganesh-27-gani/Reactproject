@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from './Navbar'
 import { useDispatch, useSelector } from 'react-redux'
 import { HiOutlineX } from "react-icons/hi";
-import { add, remove } from './Redux/CartSlice';
+import { add, remove,minus } from './Redux/CartSlice';
 
 
 const CortPage = () => {
@@ -18,10 +18,9 @@ const CortPage = () => {
   const increment = (ele) => {
     dispatch(add(ele));
   }
-  const decrement = (ele) => {
-     dispatch(add(ele.id));
-     
-      
+  
+  const decrement = (ele)=>{
+    dispatch(minus(ele))
   }
   return (
     <>
@@ -43,15 +42,15 @@ const CortPage = () => {
                 />
                 <div className="flex-grow-1 ms-5 text-start ">
                   <h5 className="mb-1">{ele.productName}</h5>
-                  <p className="text-muted m-0">${ele.price}</p>
+                  <p className="text-muted m-0">${ele.price}.00 * {ele.quantity}  <strong className='ms-3'>${`${ele.price*ele.quantity}`}.00</strong></p>
                 </div>
                 <HiOutlineX 
-                  style={{ cursor: "pointer", fontSize: "40px",marginBottom:"50px" }} 
+                  style={{ cursor: "pointer", fontSize: "40px",position:"relative", color:"black", left:"69px",bottom:"70px" }} 
                   onClick={() => handelremov(ele.id)} 
                 />
-                <div   style={{marginTop:"70px",display:"flex",gap:"20px",position:"relative",right:"45px", }}>
+                <div   style={{ top:"60px",display:"flex",gap:"20px",position:"relative",right:"5px", }}>
                 <button onClick={()=> decrement(ele)}>-</button>
-                <span>{ele.quantity}</span>
+                
                 <button onClick={()=> increment(ele)}>+</button>
                 </div>
                 
@@ -71,8 +70,8 @@ const CortPage = () => {
           {cartdata.length > 0 && (
             <div className="border p-3 rounded text-start">
               <h5 className="border-bottom pb-2">Cart Summary</h5>
-              <p className="mb-1"><strong>Total Items:</strong> {cartdata.length}</p>
-              <p className="mb-0"><strong>Total Price:</strong> ${cartdata.reduce((acc, ele) => acc + ele.price, 0).toFixed(2)}</p>
+              {/* <p className="mb-1"><strong>Total Items:</strong> {cartdata.length}</p> */}
+              <p className="mb-0"><strong>Total Price:</strong> ${cartdata.reduce((acc, ele) => acc + ele.price*ele.quantity, 0).toFixed(2)}</p>
             </div>
           )}
         </div>
