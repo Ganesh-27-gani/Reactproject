@@ -23,5 +23,15 @@
     
   }
   
-   
+   @media screen and (max-width: 768px) {
+    .footer-list {
+      flex-direction: column;  
+      align-items: center;  
+    }   
+
+    .footer-list li {
+      margin: 5px 0; 
+    }
+    
+   }
   
